@@ -2,4 +2,5 @@ pandas
 pylint
 pytest
 black
+wikipedia
 click

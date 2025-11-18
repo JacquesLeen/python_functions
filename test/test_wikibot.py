@@ -1,11 +1,14 @@
 """Tests for the wikibot module."""
 
 from wikibot import get_wikipedia_summary
+from click.testing import CliRunner
+
 
 def test_get_wikipedia_summary():
     """Test get_wikipedia_summary to ensure it returns a valid summary."""
-    topic = "Python (programming language)"
-    summary = get_wikipedia_summary(topic, sentences=2)
-    assert isinstance(summary, str)
-    assert len(summary) > 0
-    assert "Python" in summary
+    runner = CliRunner()
+    result = runner.invoke(get_wikipedia_summary, ["--name", "Python (programming language)", "--sentences", "3"])
+    assert "Python" in result.output
+    assert isinstance(result.output, str)
+    assert len(result.output) > 0
+

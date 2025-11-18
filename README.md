@@ -16,9 +16,9 @@ curl -X 'POST' \
 }'
 ```
 
-## Container Build
+## Container Build & Run
 
 ```bash
-docker build .
-docker image ls
+docker build -t  wikipedia-api:latest .
+docker run -p 8000:8000 wikipedia-api:latest
 ```
